@@ -1,8 +1,9 @@
 class Triangle:
     def __init__(self):
-        self._a = None
-        self._b = None
-        self._c = None
+        # self._a = None
+        # self._b = None
+        # self._c = None
+        pass
 
     @property
     def a(self):
@@ -19,42 +20,42 @@ class Triangle:
     @a.setter
     def a(self, aIn):
         try:
-            aTemp = int (aIn)
+            aTemp = float (aIn)
             if aTemp <= 0:
-                return False
+                raise ValueError(f'{aTemp} is smaller or equal to 0')
             else:
                 self._a = aTemp
                 return True
-        except ValueError:
-            print(f"Invalid value for a: {aIn}")
+        except ValueError as e:
+            print(f"{e}. Invalid value for a: {aIn}")
             return False
 
     @b.setter
     def b(self, bIn):
         try:
-            bTemp = int (bIn)
+            bTemp = float (bIn)
             if bTemp <= 0:
-                return False
+                raise ValueError(f"{bTemp} is smaller or equal to 0")
             else:
                 self._b = bTemp
                 return True
-        except ValueError:
-            print(f"Invalid value for b: {bIn}")
+        except ValueError as e:
+            print(f"{e}. Invalid value for b: {bIn}")
             return False
 
     @c.setter
     def c(self, cIn):
         try:
-            cTemp = int (cIn)
+            cTemp = float (cIn)
             if cTemp <= 0:
-                return False
+                raise ValueError(f"{cTemp} is smaller or equal to 0")
             else:
                 self._c = cTemp
                 return True
-        except ValueError:
-            print(f"Invalid value for c: {cIn}")
+        except ValueError as e:
+            print(f"{e}. Invalid value for c: {cIn}")
             return False
 
     def checkTriangleIneq(self):
-        sortedSides = sorted[self.a, self.b, self.c]
+        sortedSides = sorted([self.a, self.b, self.c])
         return sum(sortedSides[:2]) > sortedSides[-1]

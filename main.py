@@ -8,14 +8,14 @@ from figures import Triangle
 
 
 class Application(tkinter.Tk):
-    def __init__(self, winSize, winTitle, transparency) :
+    def __init__(self) :
         super().__init__()
 
-        self.geometry(winSize)
-        self.title(winTitle)
+        self.geometry(WINDOW_SIZE)
+        self.title(WINDOW_TITLE)
         self.resizable(False, False)
         self.iconbitmap(r"img\icon.ico")
-        self.attributes('-alpha', transparency)
+        self.attributes('-alpha', WINDOW_TRANSPARENCY)
         self.frames = {}
 
         container = tkinter.Frame(self)
@@ -236,7 +236,7 @@ class LoadSession(tkinter.Frame):
 
 
 def main():
-    app = Application(WINDOW_SIZE, WINDOW_TITLE, WINDOW_TRANSPARENCY)
+    app = Application()
     app.mainloop()
 
 
